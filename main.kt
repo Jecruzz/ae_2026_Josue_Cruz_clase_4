@@ -8,16 +8,39 @@ data class Student(
     val isActive: Boolean
 )
 
-fun main() {
-	val jorge = Student(
+fun getStudents(): List<Student>{
+    val sebas = Student(
     	id = 1,
-        email = "jorge@puce.com",	/// no importa el orden por que se especifica el tipo de dato
-        grade = 8,
+        email = "sebas@puce.com",	/// no importa el orden por que se especifica el tipo de dato
+        grade = 9,
         isActive = true,
-        name = "Jorge"
-    )
+        name = "Sebas"
+    ) 
     
-    val ana = Student (1, "Ana","ana@puce.com", 10, true) /// importa el orden por que no se especifica el tipo de dato
-    println(jorge)
-    println(ana)
+    val diego = Student(
+    	id = 2,
+        email = "diego@puce.com",	
+        grade = 0,
+        isActive = true,
+        name = "Diego"
+    ) 
+    
+    val david = Student(
+    	id = 3,
+        email = "david@puce.com",	
+        grade = 6,
+        isActive = true,
+        name = "David"
+    )
+    return listOf (sebas, diego, david)
+}
+
+fun getResult(grade: Int): String {  /// firma de la funcion
+    return if(grade>7) "Aprobado" else "Reprobado"
+}
+
+fun main() {
+    for (student in getStudents()){
+        println("${student.name} esta ${getResult(student.grade)}")
+    }
 }
