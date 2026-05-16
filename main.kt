@@ -1,15 +1,12 @@
 /// ae_2026_Josue_Cruz_clase_4
+/// estructura del commit clase_4 {{valor incremental}}
 fun main() {
-    /// Siempre debo tipar mis variables (o constantes)
-   val mensaje: String = "Hola mundo"
-   var variablemutable: Int = 5
-   println(mensaje)
-   println(variablemutable)
-     
-   variablemutable = 10
-   println(variablemutable)
+   val name: String = "Ana"
+   val email:String = "ana@gmail.com"
+   val number: Int = 67
+   // Ana - ana@gmail.com
    
-   mensaje = "Hola mundo mutado"
-   println(mensaje)
-
+   println(name + " - " + email) /// nunca hacer esto
+   println("$name - $email") /// siempre usar string templates en log
+   println("Te faltan ${100 - number} para llegar a 100")
 }
