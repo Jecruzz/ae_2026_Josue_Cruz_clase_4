@@ -8,7 +8,7 @@ data class Student(
     val isActive: Boolean
 )
 
-fun getStudents(): List<Student>{
+fun getStudents(): MutableList<Student>{
     val sebas = Student(
     	id = 1,
         email = "sebas@puce.com",	/// no importa el orden por que se especifica el tipo de dato
@@ -32,7 +32,7 @@ fun getStudents(): List<Student>{
         isActive = true,
         name = "David"
     )
-    return listOf (sebas, diego, david)
+    return mutableListOf (sebas, diego, david)
 }
 
 fun getResult(grade: Int): String {  /// firma de la funcion
@@ -40,7 +40,16 @@ fun getResult(grade: Int): String {  /// firma de la funcion
 }
 
 fun main() {
+    val estudiantesEstudiosos: MutableList<Student> = mutableListOf()
     for (student in getStudents()){
-        println("${student.name} esta ${getResult(student.grade)}")
+        if (student.grade>7){
+            estudiantesEstudiosos.add(student)
+        }
     }
+    println(estudiantesEstudiosos)
+    
+    val estudiantesEstudiosos2: List<Student> = getStudents().filter { loQueSea -> 
+        loQueSea.grade > 7
+    }
+    println(estudiantesEstudiosos2)
 }
